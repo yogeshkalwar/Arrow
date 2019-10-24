@@ -25,4 +25,19 @@ data class City(@SerializedName("coord") var coordinate: Coordinate?,
         }
         return firstValue;
     }
+
+    override fun toString(): String {
+        val buffer: StringBuffer = StringBuffer()
+        buffer.append("Coordinate:" + coordinate.toString())
+        buffer.append(",\nweather:" + getFirstWeather().toString())
+        buffer.append(",\nmain:" + main.toString())
+        buffer.append(",\nvisibility:" + visibility)
+        buffer.append(",\nwind:" + wind.toString())
+        buffer.append(",\nclouds:" + clouds.toString())
+        buffer.append(",\ndt:"+date)
+        buffer.append(",\nid:"+id)
+        buffer.append(",\nname:"+name)
+        buffer.append(",\ncod:"+code)
+        return buffer.toString()
+    }
 }

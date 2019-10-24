@@ -9,4 +9,9 @@ import com.google.gson.annotations.SerializedName
 data class Weather(@SerializedName("id") var id: Int = 0,
                    @SerializedName("main") var main: String?,
                    @SerializedName("description") var description: String?,
-                   @SerializedName("icon") var icon: String?)
+                   @SerializedName("icon") var icon: String?) {
+
+    override fun toString(): String {
+        return "{id=%d, main=%s, desc=%s, icon=%s}".format(id, main, description, icon)
+    }
+}
