@@ -1,30 +1,28 @@
 package com.yogi.android.arrow.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yogi.android.arrow.R
-import com.yogi.android.arrow.helper.ContextResource
-import com.yogi.android.arrow.helper.Resource
 import com.yogi.android.arrow.model.City
-import com.yogi.android.arrow.repository.NetworkOnlyRepository
-import com.yogi.android.arrow.repository.network.LiveApiService
-import io.reactivex.Scheduler
+import com.yogi.android.arrow.repository.Repository
+import dagger.android.AndroidInjection
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+
+    @Inject lateinit var repository: Repository
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         test()
     }
 
+    override fun getLayoutId(): Int = R.layout.activity_main
+
     private fun test() {
-        var resource = ContextResource(this)
-        var apiService = LiveApiService(resource, false)
-        var repository = NetworkOnlyRepository(apiService);
         repository.getCityWeather("London,uk")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
