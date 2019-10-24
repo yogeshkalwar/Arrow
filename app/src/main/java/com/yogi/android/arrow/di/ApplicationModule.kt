@@ -10,7 +10,7 @@ import javax.inject.Singleton
 /**
  * Created on 2019-10-23.
  */
-@Module
+@Module(includes = arrayOf(ViewModelModule::class))
 internal class ApplicationModule {
 
     @Singleton

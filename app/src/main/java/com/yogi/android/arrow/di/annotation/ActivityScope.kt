@@ -1,4 +1,4 @@
-package com.yogi.android.arrow.di.scope
+package com.yogi.android.arrow.di.annotation
 
 import javax.inject.Scope
 

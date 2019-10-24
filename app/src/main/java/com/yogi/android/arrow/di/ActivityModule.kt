@@ -1,6 +1,6 @@
 package com.yogi.android.arrow.di
 
-import com.yogi.android.arrow.di.scope.ActivityScope
+import com.yogi.android.arrow.di.annotation.ActivityScope
 import com.yogi.android.arrow.ui.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
