@@ -32,7 +32,7 @@ class MainActivity : BaseActivity() {
     private fun init() {
         viewModelContract = ViewModelProviders.of(this, viewModelFactory).get(CityWeatherViewModel::class.java)
         (viewModelContract as CityWeatherViewModel).getCity().observe(this, Observer { city -> onDataUpdate(city)})
-        viewModelContract.load()
+        //viewModelContract.load()
     }
 
     fun onDataUpdate(city: City) {

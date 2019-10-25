@@ -19,6 +19,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    testOptions{
+        unitTests{
+            includeAndroidResources true
+        }
+    }
 }
 
 dependencies {
@@ -61,7 +67,7 @@ dependencies {
     // core testing
     testImplementation 'android.arch.core:core-testing:1.1.1'
     // Roboelectric
-    testImplementation 'org.robolectric:robolectric:3.8'
+    testImplementation 'org.robolectric:robolectric:4.3.1'
     //Test
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.8.9'
